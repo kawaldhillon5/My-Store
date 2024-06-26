@@ -1,10 +1,18 @@
-#root {
-    display: grid;
-    grid-template-columns: 1fr 6fr;
-    grid-template-rows: 1.5fr 8fr 0.5fr;
+html,body{
+    margin: 0;
+    height: 100%;
+    padding: 0;
+    
 }
 
-.header, .footer, .navbar, .content {
+#root {
+    display: grid;
+    height: 100%;
+    grid-template-columns: 1fr 6fr;
+    grid-template-rows: 1fr 12fr 0.5fr;
+}
+
+.header, .footer, .navbar, .content, .content-div {
     border: 1px solid red;
 }
 
@@ -13,6 +21,7 @@
     display: flex;
     gap: 1vw;
     justify-content: space-between;
+    align-items: center;
 }
 
 .navbar {
@@ -21,6 +30,12 @@
 
 .content {
     grid-area: 2/2/3/3;
+    max-height: 100%;
+    display: block;
+    overflow: auto;
+}
+.content-div {
+    
 }
 
 .footer {
