@@ -11,11 +11,11 @@ export default function Navbar({categories}) {
                     <Link to={`/`}>Home</Link>
                 </li>
                 <li className="home_link">
-                    <Link to={`shop`}>Shop</Link>
+                    <span>Shop</span>
                     {   <ul>
-                        {categories.map((categorie, i) => (
+                        {categories.map((category, i) => (
                             <li key={`${i}`}>
-                                <Link to={`shop/${categorie}`}>{`${categorie}`}</Link>
+                                <Link to={`shop/${category}`}>{`${category}`}</Link>
                             </li>
                         ))}
                     </ul>
