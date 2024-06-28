@@ -8,8 +8,13 @@ export async function loader({params}){
 
 export default function Product() {
     const product = useLoaderData().product;
-    console.log(product);
     return (
-        <p>Product</p>
+        <>
+            <img src={`${product.image}`} alt={`${product.title}`} />
+            <p>{product.title}</p>
+            <p>{product.description}</p>
+            <p>Ratings: {product.rating.rate}</p>
+            <p>{product.price}</p>
+        </>
     )
 }
