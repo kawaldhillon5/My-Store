@@ -1,9 +1,9 @@
 import { Outlet } from "react-router-dom"
 
-export default function Content() {
+export default function Content({contex}) {
     return (
         <div className="content">
-            <Outlet></Outlet>
+            <Outlet context={contex} ></Outlet>
         </div>
     )
 }

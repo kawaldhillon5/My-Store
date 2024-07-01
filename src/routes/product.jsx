@@ -1,5 +1,13 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useOutletContext, Form, redirect } from "react-router-dom";
 import { getProduct } from "../fakeStoreApi";
+import { addProduct } from "../cart/cart-class";
+
+export async function action({request, params}){
+    const formData = await request.formData();
+    const quantity = formData.get("quantity");
+    await addProduct(params.id, quantity);
+    return redirect(`/cart`);
+}
 
 export async function loader({params}){
     const product = await getProduct(params.id);
@@ -15,6 +23,10 @@ export default function Product() {
             <p>{product.description}</p>
             <p>Ratings: {product.rating.rate}</p>
             <p>{product.price}</p>
+            <Form method="post">
+                <input type="number" name="quantity"/>
+                <button type="submit">Add to Cart</button>
+            </Form>
         </>
     )
 }

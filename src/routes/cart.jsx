@@ -1,10 +1,38 @@
-import cartIconUrl from "../assets/cart-icon.svg" 
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
+import { useLoaderData  } from "react-router-dom";
+import { getCart } from "../cart/cart-class";
+
+export async function loader(){
+    const userCart = await getCart();
+    return {userCart};
+}
+
 export default function Cart(){
-    return (
-        <div className="header-cart">
-            <div className="cart-quantity-text">1</div>
-            <Link to="cart"  ><img className="cart-icon" src={cartIconUrl} alt="Cart" /></Link>
+
+    const {userCart} = useLoaderData();
+
+    return(
+        <div className="Cart-content">
+            {(userCart.length > 0) ? 
+                <ul>
+                    {userCart.map((item) =>(
+                        <li key={item.id} >
+                            <div>
+                                {item.title}
+                            </div>
+                            <div>
+                                {item.price}
+                            </div>
+                            <div>
+                                {item.quantity}
+                            </div>
+                        </li>
+                    ))
+                    }
+                </ul> 
+                :
+                <p>Cart Empty</p>
+            }
         </div>
     )
 }

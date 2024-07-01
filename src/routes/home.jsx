@@ -5,22 +5,23 @@ import Content from "../homeUI-elements/content"
 import "./home.css"
 import { getCategories } from "../fakeStoreApi";
 import { useLoaderData } from "react-router-dom"
-
+import { getNoOfProducts } from "../cart/cart-class"
 
 export async function loader() {
     const categories = await getCategories();
-    return {categories};
+    const cartLenght = await getNoOfProducts();
+    return {categories, cartLenght};
 }
 
 export default function Root() {
 
-    const {categories} = useLoaderData();
+    const {categories, cartLenght} = useLoaderData();
 
     return (
         <>
-        <Header></Header>
+        <Header cartLenght={cartLenght}></Header>
         <Navbar categories={categories}></Navbar>
-        <Content></Content>
+        <Content ></Content>
         <Footer></Footer>
         </>
     )
