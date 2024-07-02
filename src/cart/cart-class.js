@@ -4,7 +4,6 @@ import { getProduct } from "../fakeStoreApi";
 export async function getCart(){
     let cart = await localforage.getItem("cart")
     if(!cart) cart = [];
-    console.log(cart);
     return cart;
 }
 
@@ -50,7 +49,7 @@ export async function cartTotal(){
 }
 
 export async function getNoOfProducts(){
-    const cart = await getCart();
+    const cart = await localforage.getItem("cart");
     if(cart){
         return cart.length;
     } else {
@@ -63,3 +62,5 @@ function setCart(cart){
     console.log(cart);
     return localforage.setItem("cart", cart);
 }
+
+

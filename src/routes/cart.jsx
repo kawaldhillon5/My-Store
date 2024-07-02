@@ -54,28 +54,7 @@ export default function Cart(){
                                     {item.price}
                                 </div>
                                 <Quantity item={item}></Quantity>
-                                {/* <fetcher.Form >
-                                    <button type="submit" name="intent" value="-"
-                                        onClick={(e) => {
-                                            let formData = new FormData();
-                                            formData.append("id", `${item.id}`);
-                                            formData.append("quantity", `${item.quantity}`);
-                                            formData.append("intend", "-");
-                                            fetcher.submit(formData, {method: "post", action: "/cart"});
-                                        }}
-                                    >-</button>
-                                </fetcher.Form>
-                                <fetcher.Form >
-                                    <button type="submit"
-                                        onClick={(e) => {
-                                            let formData = new FormData();
-                                            formData.append("id", `${item.id}`);
-                                            formData.append("quantity", `${item.quantity}`);
-                                            formData.append("intend","delete")
-                                            fetcher.submit(formData, {method: "post", action: "/cart"});
-                                        }}
-                                    >Delete</button>
-                                </fetcher.Form> */}
+
                             </li>
                         ))
                         }
@@ -105,7 +84,7 @@ function Quantity ({item}){
                     e.preventDefault();
                     let formData = new FormData();
                     formData.append("id", `${item.id}`);
-                    formData.append("quantity", `${q+1}`);
+                    formData.append("quantity", `${Number(q)+1}`);
                     formData.append("intend", "+");
                     fetcher.submit(formData, {method: "post", action: "/cart"});
                 }}
@@ -116,7 +95,7 @@ function Quantity ({item}){
                     e.preventDefault();
                     let formData = new FormData();
                     formData.append("id", `${item.id}`);
-                    formData.append("quantity", `${q-1}`);
+                    formData.append("quantity", `${Number(q)-1}`);
                     formData.append("intend", "-");
                     fetcher.submit(formData, {method: "post", action: "/cart"});
                 }}

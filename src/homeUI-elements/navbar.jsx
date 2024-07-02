@@ -1,6 +1,4 @@
-import { Link } from "react-router-dom";
-
-
+import { Link, NavLink } from "react-router-dom";
 
 export default function Navbar({categories}) {
     
@@ -15,13 +13,23 @@ export default function Navbar({categories}) {
                     {   <ul>
                         {categories.map((category, i) => (
                             <li key={`${i}`}>
-                                <Link to={`shop/${category}`}>{`${category}`}</Link>
+                                <NavLink to={`shop/${category}`}
+                                        className={({ isActive, isPending }) =>
+                                        isActive
+                                        ? "active"
+                                        : isPending
+                                        ? "pending"
+                                        : ""
+                                    }
+                                >{`${category}`}</NavLink>
                             </li>
                         ))}
-                    </ul>
-                }
+                        </ul>
+                    }
                 </li>
             </nav>
         </div>
     )
 }
+
+
