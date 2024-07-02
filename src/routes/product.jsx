@@ -24,7 +24,7 @@ export default function Product() {
             <p>Ratings: {product.rating.rate}</p>
             <p>{product.price}</p>
             <Form method="post">
-                <input type="number" name="quantity"/>
+                <input type="number" name="quantity" defaultValue={1}/>
                 <button type="submit">Add to Cart</button>
             </Form>
         </>

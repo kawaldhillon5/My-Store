@@ -9,7 +9,7 @@ import {
 import Product, {loader as productLoader, action as productAction }from './routes/product';
 import Shop, {loader as categoryLoader} from './routes/shop';
 import Root, {loader as rootLoader} from './routes/home';
-import Cart, {loader as cartLoader} from './routes/cart';
+import Cart, {loader as cartLoader, action as cartAction} from './routes/cart';
 
 const router = createBrowserRouter([
   {
@@ -32,6 +32,7 @@ const router = createBrowserRouter([
         path: "Cart",
         element: <Cart />,
         loader: cartLoader,
+        action: cartAction,
       }
     ]
   },

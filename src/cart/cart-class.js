@@ -2,8 +2,9 @@ import localforage from "localforage";
 import { getProduct } from "../fakeStoreApi";
 
 export async function getCart(){
-    let cart = await localforage.getItem("cart");
+    let cart = await localforage.getItem("cart")
     if(!cart) cart = [];
+    console.log(cart);
     return cart;
 }
 
@@ -22,22 +23,25 @@ export async function addProduct(productid, q){
 }
 
 export async function removeProduct(id){
-    let cart = await getCart();
+    let cart = await localforage.getItem("cart");
     cart.splice((cart.findIndex(i => i.id == id)),1);
     await setCart(cart);
+    return true;
 }
 
 export async function setQuantity(id, quantity){
-    let cart = await getCart();
+    console.log("set q");
+    let cart = await localforage.getItem("cart");
     const index = cart.findIndex(i => i.id == id)
     cart[index] = {...cart[index], quantity: quantity};
-    await setCart(cart);
+    await setCart(cart);   
+    return cart;
 }
 
 
 
 export async function cartTotal(){
-    let cart = await getCart();
+    let cart = await localforage.getItem("cart");
     let sum = 0;
     cart.forEach((product) =>{
         sum += product.price*product.quantity;
@@ -55,6 +59,7 @@ export async function getNoOfProducts(){
 }
 
 function setCart(cart){
+    console.log("setCart 1")
+    console.log(cart);
     return localforage.setItem("cart", cart);
 }
-
