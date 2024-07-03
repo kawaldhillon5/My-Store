@@ -17,9 +17,6 @@ html,body{
     grid-template-rows: 1fr 12fr 0.5fr;
 }
 
-.header, .footer, .navbar, .content, .content-div {
-    border: 1px solid red;
-}
 
 .header {
     grid-area: 1/1/2/3;
@@ -40,6 +37,7 @@ html,body{
 }
 
 .content {
+    padding: 10px;
     position: relative;
     grid-area: 2/2/3/3;
     max-height: 100%;
@@ -150,6 +148,11 @@ div>.content-loading{
 .navbar>li{
     list-style: none;
     font: 20px;
+}
+
+.product-list-div{
+    display: grid;
+
 }
 
 
