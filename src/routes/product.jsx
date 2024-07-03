@@ -1,13 +1,7 @@
-<<<<<<< HEAD
-import { useLoaderData, useOutletContext, Form, redirect } from "react-router-dom";
-import { getProduct } from "../fakeStoreApi";
-import { addProduct } from "../cart/cart-class";
-=======
 import { useLoaderData, Form, redirect, useNavigation } from "react-router-dom";
 import { getProduct } from "../fakeStoreApi";
 import { addProduct } from "../cart/cart-class";
 import "./product.css"
->>>>>>> new-branch
 
 export async function action({request, params}){
     const formData = await request.formData();
@@ -23,20 +17,6 @@ export async function loader({params}){
 
 export default function Product() {
     const product = useLoaderData().product;
-<<<<<<< HEAD
-    return (
-        <>
-            <img src={`${product.image}`} alt={`${product.title}`} />
-            <p>{product.title}</p>
-            <p>{product.description}</p>
-            <p>Ratings: {product.rating.rate}</p>
-            <p>{product.price}</p>
-            <Form method="post">
-                <input type="number" name="quantity" defaultValue={1}/>
-                <button type="submit">Add to Cart</button>
-            </Form>
-        </>
-=======
     const navigation1 = useNavigation();
     return (
         <div className="product-div">
@@ -59,6 +39,5 @@ export default function Product() {
                 </div>
             </div>
         </div>
->>>>>>> new-branch
     )
 }

@@ -1,11 +1,8 @@
-<<<<<<< HEAD
-=======
 @font-face {
     font-family: myFont;
     src: url(../assets/Roboto-Regular.ttf);
 }
 
->>>>>>> new-branch
 html,body{
     margin: 0;
     height: 100%;
@@ -43,16 +40,6 @@ html,body{
 }
 
 .content {
-<<<<<<< HEAD
-    grid-area: 2/2/3/3;
-    max-height: 100%;
-    display: block;
-    overflow: auto;
-}
-.content-div {
-    
-}
-=======
     position: relative;
     grid-area: 2/2/3/3;
     max-height: 100%;
@@ -61,7 +48,6 @@ html,body{
     align-items: center;
     overflow: auto;
 }
->>>>>>> new-branch
 
 .footer {
     grid-area: 3/1/4/3;
@@ -105,13 +91,7 @@ li> .active {
 }
 
 .loader-div-loading{
-<<<<<<< HEAD
-    /* position: absolute;
-    left: 50%;
-    top: 50%; */
-=======
     position: absolute;
->>>>>>> new-branch
     z-index: 1;
     height:100%;
     width:100%;
@@ -127,10 +107,6 @@ div>.content-loading{
     position: absolute;
     left: 50%;
     top: 50%;
-<<<<<<< HEAD
-    z-index: 1;
-=======
->>>>>>> new-branch
     width: 120px;
     height: 120px;
     margin: -76px 0 0 -76px;
@@ -151,8 +127,6 @@ div>.content-loading{
     100% { transform: rotate(360deg); }
   }
 
-<<<<<<< HEAD
-=======
   .pending{
     color: green;
   }
@@ -179,4 +153,3 @@ div>.content-loading{
 }
 
 
->>>>>>> new-branch
