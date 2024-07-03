@@ -21,11 +21,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    border: 1px solid rgb(137, 203, 225);
+    border-radius: 15px;
+    width: clamp(30% 40% 50%);
+    height: clamp(30% 40% 50%);
 }
 
 .product-img > img{
     max-height: 70%;
-    max-width: 70%;
+    max-width: 90%;
     
 }
 

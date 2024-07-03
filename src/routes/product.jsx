@@ -21,9 +21,6 @@ export default function Product() {
     return (
         <div className="product-div">
             <div className="product-img">
-                <div className={`loader-div ${navigation1.state === "loading" ? "loader-img-loading" : ""}`}>
-                <div className={`${navigation1.state === "loading" ? "img-loading" : ""}`}></div>
-                </div>
                 <img src={`${product.image}`} alt={`${product.title}`} />
             </div>
             <div className="product-info">
