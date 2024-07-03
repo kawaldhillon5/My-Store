@@ -1,0 +1,121 @@
+@font-face {
+    font-family: myFont;
+    src: url(../assets/Roboto-Regular.ttf);
+}
+
+.cart-div{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.cart-list-div{
+    position: relative;
+    list-style: none;
+    flex: 1;
+    list-style: none ;
+    max-height: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(800px, 1fr));
+    justify-items: start;
+    gap: 20px;
+    overflow: auto;
+}
+
+.cart-product{
+    display: flex;
+    align-items: center;
+    justify-items: center;   
+}
+
+.cart-product-img-div{
+    min-height: 200px;
+    min-width: 200px;
+    max-width: 200px;
+    max-height: 200px;
+    border: 1px solid rgb(137, 203, 225);
+    border-radius: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    margin: 10px;
+}
+
+.cart-product-img {
+    padding: 1%;
+    max-width: 80%;
+    max-height: 80%;
+    object-fit: contain;      
+}
+
+.cart-product-info{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: start;
+}
+.cart-product-title{
+    font-size: 30px;
+    font-family: myFont;
+}
+
+.cart-product-price{
+    margin:10px;
+    font-size: 15px;
+    font-family: myFont;
+    
+}
+
+.cart-quantity-form {
+    width: 25%;
+    display: flex;
+    align-items: center;
+}
+
+.cart-quantity-form> button,span{
+    margin-left: 10px;
+}
+
+.cart-quantity-form>button {
+    font-family: myfont;
+    background-color: aliceblue;
+    height: 30px;
+    font-size: 20px;
+    border:1px solid rgb(63, 181, 232) ;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.q-button{
+    width: 25px;
+}
+
+.cart-quantity-form> span {
+    font-size: 20px;
+}
+
+.cart-total-div{
+    display: flex;
+    font-family: myFont;
+    justify-content: center;
+    align-items: center;
+}
+
+.cart-total-div>button{
+    background-color: aliceblue;
+    height: 30px;
+    font-size: 20px;
+    border:1px solid rgb(63, 181, 232) ;
+    border-radius: 5px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.name{
+    text-align: center;
+    font-family: myFont;
+    font-size: 30px;
+}
+

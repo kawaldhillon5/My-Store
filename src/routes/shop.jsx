@@ -27,7 +27,7 @@ export default function Shop() {
     )
 }
 
-const ProductList = function({product}){
+export const ProductList = function({product}){
     return(
         <div className="list-product">
             <div className="list-product-img-div"><img className="list-product-img" src={`${product.image}`} alt={`${product.title}`} /></div>

@@ -1,7 +1,7 @@
 import { Link, Form, redirect, useFetcher, useSubmit, useActionData } from "react-router-dom";
 import { useLoaderData  } from "react-router-dom";
 import { cartTotal, getCart, setQuantity, removeProduct } from "../cart/cart-class";
-import localforage from "localforage";
+import "./cart.css"
 
 export async function action({request}){
     const formData = await request.formData();
@@ -43,24 +43,19 @@ export default function Cart(){
     return(
         <div className="Cart-content">
             {(userCart.length > 0) ? 
-                <div className="cart-with-items">
-                    <ul>
+                <div className="cart-div">
+                    <div className="name">My Cart</div>
+                    <ul className="cart-list-div">
                         {userCart.map((item) =>(
-                            <li key={item.id} >
-                                <div>
-                                    {item.title}
-                                </div>
-                                <div>
-                                    {item.price}
-                                </div>
-                                <Quantity item={item}></Quantity>
-
+                            <li className="cart-item" key={item.id} >
+                                <CartList product={item} />
                             </li>
                         ))
                         }
                     </ul>
-                    <div className="total">
-                        {`Total is $${cartAmount}`}
+                    <div className="cart-total-div">
+                        <div className="cart-total">{`Total: $${cartAmount}`}</div>
+                        <button className="cart-checkout-button">Checkout</button>
                     </div>
                 </div>
                 :
@@ -77,9 +72,10 @@ function Quantity ({item}){
         : item.quantity;
 
     return(
-        <fetcher.Form>
+        <fetcher.Form className="cart-quantity-form">
             
             <button type="submit"
+                className="q-button"
                 onClick={(e) => {
                     e.preventDefault();
                     let formData = new FormData();
@@ -91,6 +87,7 @@ function Quantity ({item}){
             >+</button>
             <span>{q}</span>
             <button type="submit"
+                className="q-button"
                 onClick={(e) => {
                     e.preventDefault();
                     let formData = new FormData();
@@ -101,6 +98,7 @@ function Quantity ({item}){
                 }}
             >-</button>
             <button type="submit"
+                className="delete-button"
                 onClick={(e) => {
                     e.preventDefault();
                     let formData = new FormData();
@@ -113,3 +111,18 @@ function Quantity ({item}){
     )
 
 }
+
+const CartList = function({product}){
+    return(
+        <div className="cart-product">
+            <div className="cart-product-img-div"><img className="cart-product-img" src={`${product.image}`} alt={`${product.title}`} /></div>
+            <div className="cart-product-info">
+                <div className="cart-product-title">{product.title}</div>
+                <div className="cart-product-price">{`$${Number(product.price)* Number(product.quantity)}`}</div>
+                <Quantity item={product}></Quantity>
+            </div>
+            
+        </div>
+    )
+}
+     
